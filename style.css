@@ -1,0 +1,420 @@
+/* Base Styles */
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111827;
+  color: white;
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cards */
+.card {
+  background: #1f2937;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* Typography */
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin: 0;
+}
+
+/* Newton's Cradle */
+.cradle {
+  width: 100%;
+  max-width: 40rem;
+  height: 20rem;
+  border-top: 1rem solid #865dff;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.cradle div {
+  width: 0.5rem;
+  height: 12rem;
+  background-color: #865dff;
+  position: relative;
+}
+
+.cradle div::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 90%;
+  width: 4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #865dff;
+}
+
+.cradle div:first-child {
+  animation: left-swing 2s linear infinite;
+  transform-origin: top left;
+}
+
+.cradle div:last-child {
+  animation: right-swing 2s linear 1s infinite;
+  transform-origin: top left;
+}
+
+@keyframes left-swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(30deg); }
+  50% { transform: rotate(0deg); }
+}
+
+@keyframes right-swing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-30deg); }
+  50% { transform: rotate(0deg); }
+}
+
+/* Shake Button */
+.shake-button {
+  padding: 0.75rem 2.25rem;
+  border: 2px solid #865dff;
+  color: #865dff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  background: transparent;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 0.25rem;
+}
+
+.shake-button:hover {
+  border-color: #d80032;
+  color: #d80032;
+  animation: shaking 0.2s linear;
+}
+
+@keyframes shaking {
+  0% { transform: rotate(20deg); }
+  50% { transform: rotate(-20deg); }
+  100% { transform: rotate(20deg); }
+}
+
+/* Carousel Background */
+.carousel-bg {
+  width: 100%;
+  height: 16rem;
+  background-size: cover;
+  background-position: center;
+  animation: gallery 20s linear infinite;
+}
+
+@keyframes gallery {
+  0% { background-image: url("https://images.pexels.com/photos/8100784/pexels-photo-8100784.jpeg"); }
+  20% { background-image: url("https://images.pexels.com/photos/10528234/pexels-photo-10528234.jpeg"); }
+  40% { background-image: url("https://images.pexels.com/photos/4338015/pexels-photo-4338015.jpeg"); }
+  60% { background-image: url("https://images.pexels.com/photos/2104152/pexels-photo-2104152.jpeg"); }
+  80% { background-image: url("https://images.pexels.com/photos/2131623/pexels-photo-2131623.jpeg"); }
+  100% { background-image: url("https://images.pexels.com/photos/1311445/pexels-photo-1311445.jpeg"); }
+}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #865dff;
+            font-size: 2.5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h2 {
+            color: #865dff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .demo-container {
+            height: 200px;
+            display: grid;
+            place-items: center;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Text Float Animation */
+        .text-float h1 {
+            font-family: "Bungee Spice", sans-serif;
+            font-size: 2.5rem;
+            animation: textfloat 0.5s linear infinite alternate;
+        }
+
+        @keyframes textfloat {
+            0% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+            100% { transform: rotate(-15deg); }
+        }
+
+        /* Eclipse Animation */
+        .universe {
+            width: 150px;
+            aspect-ratio: 1;
+            background-color: #ffbb5c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: skychange 8s ease infinite;
+        }
+
+        @keyframes skychange {
+            0% { background-color: #ffbb5cb5; }
+            25% { background-color: #fcbf49; }
+            50% { background-color: #000000; }
+            75% { background-color: #fcbf49; }
+            100% { background-color: #ffbb5cb5; }
+        }
+
+        .sun {
+            width: 80px;
+            aspect-ratio: 1;
+            background-color: rgb(224, 60, 60);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sun::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: inherit;
+            border-radius: inherit;
+            aspect-ratio: 1;
+            background-color: black;
+            animation: moonwalk 10s ease-in-out infinite;
+        }
+
+        @keyframes moonwalk {
+            0% { transform: translateX(100%) scale(1); }
+            50% { transform: translateX(0%) scale(0.9); }
+            100% { transform: translateX(-100%) scale(0.9); }
+        }
+
+        /* Neon Loader */
+        .loader {
+            width: 100px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: blueviolet;
+            position: relative;
+            animation: circleloader 2s linear infinite reverse;
+        }
+
+        @keyframes circleloader {
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .loader::after {
+            content: "";
+            position: absolute;
+            top: -15%;
+            left: 45%;
+            width: 25%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: blueviolet;
+            box-shadow: 0 0 10px blueviolet, 0 0 15px blueviolet;
+        }
+
+        /* Newton's Cradle */
+        .cradle {
+            width: 100%;
+            height: 150px;
+            border-top: 10px solid #865dff;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .cradle div {
+            width: 4px;
+            height: 80px;
+            background-color: #865dff;
+            position: relative;
+        }
+
+        .cradle div::before {
+            content: "";
+            position: absolute;
+            left: -12px;
+            top: 90%;
+            width: 28px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: #865dff;
+        }
+
+        .cradle div:first-child {
+            animation: left-swing 2s linear infinite;
+            transform-origin: top left;
+        }
+
+        .cradle div:last-child {
+            animation: right-swing 2s linear 1s infinite;
+            transform-origin: top left;
+        }
+
+        @keyframes left-swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(30deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        @keyframes right-swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-30deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        /* Raining Effect */
+        .raining-effect {
+            width: 100%;
+            height: 100%;
+            background-image: url("https://images.pexels.com/photos/4633649/pexels-photo-4633649.jpeg");
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .raining-effect::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='20' viewBox='0 0 10 20'%3E%3Cpath fill='%23ffffff' d='M5,0 L5,20' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E");
+            animation: raining 400ms linear infinite;
+        }
+
+        @keyframes raining {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 10% 100%; }
+        }
+
+        /* Subscribe Animation */
+        .subscribe h1 {
+            font-family: "Bungee Spice", sans-serif;
+            font-size: 2rem;
+            text-shadow: -1px 2px 3px rgba(236, 247, 76, 0.2);
+            position: relative;
+        }
+
+        .subscribe h1::before {
+            content: "Subscribe..";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            color: #e9b824;
+            text-transform: capitalize;
+            border-right: 2px solid #e9b824;
+            overflow: hidden;
+            animation: textfill 2s linear infinite alternate;
+        }
+
+        @keyframes textfill {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
