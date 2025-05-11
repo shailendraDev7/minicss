@@ -1,0 +1,5 @@
+# robots.txt
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Crawl-delay: 10
